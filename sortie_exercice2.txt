@@ -1,0 +1,16 @@
+=== Exercice 2 : transport par recherche taboue ===
+Solution initiale (coin Nord-Ouest) : [[4, 4, 0], [0, 1, 8]]  coût = 55
+It  1 : mouvement D1->M2 +1 / D2->M1 +1 (D1->M1 -1, D2->M2 -1)  X=[[3, 5, 0], [1, 0, 8]]  coût=52  meilleur=52
+It  2 : mouvement D1->M3 +1 / D2->M1 +1 (D1->M1 -1, D2->M3 -1)  X=[[2, 5, 1], [2, 0, 7]]  coût=55  meilleur=52
+It  3 : mouvement D1->M3 +1 / D2->M1 +1 (D1->M1 -1, D2->M3 -1)  X=[[1, 5, 2], [3, 0, 6]]  coût=58  meilleur=52
+It  4 : mouvement D1->M3 +1 / D2->M1 +1 (D1->M1 -1, D2->M3 -1)  X=[[0, 5, 3], [4, 0, 5]]  coût=61  meilleur=52
+It  5 : mouvement D1->M1 +1 / D2->M2 +1 (D1->M2 -1, D2->M1 -1)  X=[[1, 4, 3], [3, 1, 5]]  coût=64  meilleur=52
+It  6 : mouvement D1->M2 +1 / D2->M3 +1 (D1->M3 -1, D2->M2 -1)  X=[[1, 5, 2], [3, 0, 6]]  coût=58  meilleur=52
+Arrêt : 5 itérations sans amélioration.
+
+Meilleure solution trouvée :
+  D1 : M1=3  M2=5  M3=0
+  D2 : M1=1  M2=0  M3=8
+  Coût total = 52
+
+Vérification par énumération exhaustive : [[3, 5, 0], [1, 0, 8]]  coût optimal = 52
