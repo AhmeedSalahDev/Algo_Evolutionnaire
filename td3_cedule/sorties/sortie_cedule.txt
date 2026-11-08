@@ -1,0 +1,18 @@
+Exemple du support : 0110 0011 0001 1000 0100 0010 1000
+  puissance en maintenance : [50, 35, 50, 50]
+  réserves                 : [20, 25, 35, 30]
+  performance              : 20 MW
+
+AG (roulette, N=42, 60 générations, pc=0.8, pm=0.1, élitisme 1)
+Meilleure cédule : 0110 0110 0001 1000 0001 0010 0010
+  unité 1 (20 MW) : maintenance en [2, 3]
+  unité 2 (15 MW) : maintenance en [2, 3]
+  unité 3 (35 MW) : maintenance en [4]
+  unité 4 (40 MW) : maintenance en [1]
+  unité 5 (15 MW) : maintenance en [4]
+  unité 6 (15 MW) : maintenance en [3]
+  unité 7 (10 MW) : maintenance en [3]
+Réserves : [30, 25, 25, 30] -> performance = 25 MW
+Meilleure valeur atteinte dès la génération 1
+
+Vérification exhaustive : 9216 cédules, optimum = 25 MW, atteint par 43 cédules

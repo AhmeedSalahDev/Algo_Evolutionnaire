@@ -1,0 +1,18 @@
+roulette  N=42 : meilleur moyen gén.0 = 17.33, gén.5 = 24.33, gén.40 = 25.00 | moyenne pop. gén.0 = 2.53, gén.40 = 12.44
+rang      N=42 : meilleur moyen gén.0 = 17.33, gén.5 = 23.83, gén.40 = 25.00 | moyenne pop. gén.0 = 2.53, gén.40 = 10.05
+tournoi   N=42 : meilleur moyen gén.0 = 17.33, gén.5 = 23.67, gén.40 = 25.00 | moyenne pop. gén.0 = 2.53, gén.40 = 10.02
+petit budget  roulette  élitisme=1 : réussite 60.3%
+petit budget  rang      élitisme=1 : réussite 60.0%
+petit budget  tournoi   élitisme=1 : réussite 62.0%
+petit budget  roulette  élitisme=0 : réussite 41.0%
+petit budget  rang      élitisme=0 : réussite 20.7%
+petit budget  tournoi   élitisme=0 : réussite 21.3%
+parents de performance 0 choisis (roulette) : 0.0%
+parents de performance 0 choisis (rang) : 57.4%
+parents de performance 0 choisis (tournoi) : 56.2%
+grille pc x pm (lignes pc = [0.0, 0.4, 0.6, 0.8, 1.0], colonnes pm = [0.0, 0.02, 0.05, 0.1, 0.2, 0.4])
+  pc=0.0 :  6.0%  26.7%  40.7%  53.3%  70.0%  63.3%
+  pc=0.4 :  9.3%  26.7%  46.0%  54.7%  69.3%  70.0%
+  pc=0.6 : 11.3%  26.7%  49.3%  56.0%  70.7%  66.0%
+  pc=0.8 : 13.3%  30.0%  45.3%  58.7%  68.7%  63.3%
+  pc=1.0 : 13.3%  28.0%  44.7%  58.0%  74.7%  68.0%
