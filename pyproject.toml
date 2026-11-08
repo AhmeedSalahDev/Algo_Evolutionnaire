@@ -11,4 +11,6 @@ requires-python = ">=3.8"
 
 [tool.setuptools]
 packages = ["td2"]
-py-modules = ["exercice2_transport_tabou", "exercice3_tsp", "generer_rapport"]
+
+[tool.setuptools.package-data]
+td2 = ["*.png", "*.txt"]

@@ -13,8 +13,20 @@ from reportlab.platypus import (Image, KeepTogether, PageBreak, Paragraph,
                                 Preformatted, SimpleDocTemplate, Spacer, Table,
                                 TableStyle)
 
-import exercice2_transport_tabou as ex2
-import exercice3_tsp as ex3
+import os
+import sys
+
+ICI = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, os.path.dirname(ICI))  # permet aussi `python td2/generer_rapport.py`
+
+from td2 import exercice2_transport_tabou as ex2  # noqa: E402
+from td2 import exercice3_tsp as ex3  # noqa: E402
+
+
+def chemin(nom):
+    """Chemin d'un fichier situé dans le dossier td2/."""
+    return os.path.join(ICI, nom)
+
 
 GITHUB = "https://github.com/AhmeedSalahDev/TD2_Optimisation_Python_Algo"
 
@@ -89,7 +101,7 @@ ax.plot(its, [h[2] for h in hist2], "o-", color="#2E75B6", label="solution coura
 ax.plot(its, [h[3] for h in hist2], "s--", color="#C00000", label="meilleure solution")
 ax.set_xlabel("itération"); ax.set_ylabel("coût total")
 ax.legend(frameon=False); fig.tight_layout()
-fig.savefig("fig_ex2_tabou.png", dpi=200); plt.close(fig)
+fig.savefig(chemin("fig_ex2_tabou.png"), dpi=200); plt.close(fig)
 
 fig, ax = plt.subplots(figsize=(6.2, 2.8))
 its = [h[0] for h in hist_tb]
@@ -98,7 +110,7 @@ ax.plot(its, [h[4] for h in hist_tb], "--", color="#C00000", label="meilleur tou
 ax.axhline(Lopt, color="#70AD47", lw=0.8, ls=":", label=f"optimum = {Lopt}")
 ax.set_xlabel("itération"); ax.set_ylabel("longueur du tour")
 ax.legend(frameon=False, ncol=3, loc="upper right"); fig.tight_layout()
-fig.savefig("fig_ex3_tabou.png", dpi=200); plt.close(fig)
+fig.savefig(chemin("fig_ex3_tabou.png"), dpi=200); plt.close(fig)
 
 # graphe des villes (positions schématiques) avec le tour optimal
 import math
@@ -120,7 +132,7 @@ for k, (x, y) in pos.items():
     ax.text(x, y, str(k), color="white", ha="center", va="center",
             fontsize=9, fontweight="bold", zorder=5)
 ax.set_aspect("equal"); ax.axis("off"); fig.tight_layout()
-fig.savefig("fig_ex3_graphe.png", dpi=220); plt.close(fig)
+fig.savefig(chemin("fig_ex3_graphe.png"), dpi=220); plt.close(fig)
 
 # ---------------------------------------------------------------- document
 story = []
@@ -267,7 +279,7 @@ story.append(P(
     "tabou, l'algorithme accepte des solutions dégradées (55, 58, 61, 64) et "
     "explore une autre région de l'espace, mais ne trouve rien de mieux. Il "
     "s'arrête après 5 itérations sans amélioration."))
-story.append(Image("fig_ex2_tabou.png", width=14 * cm, height=14 * 2.6 / 6.2 * cm))
+story.append(Image(chemin("fig_ex2_tabou.png"), width=14 * cm, height=14 * 2.6 / 6.2 * cm))
 story.append(P("Figure 1 — Évolution du coût (exercice 2)", CAP))
 
 story.append(P("2.4 Résultat", H2))
@@ -302,7 +314,7 @@ for i in range(1, 9):
 t = tableau(mat, [1 * cm] * 9)
 t.setStyle(TableStyle([("BACKGROUND", (0, 1), (0, -1), GRIS),
                        ("FONT", (0, 1), (0, -1), "DVB", 8.5)]))
-row = Table([[t, Image("fig_ex3_graphe.png", width=6 * cm, height=6 * 3.4 / 3.6 * cm)]],
+row = Table([[t, Image(chemin("fig_ex3_graphe.png"), width=6 * cm, height=6 * 3.4 / 3.6 * cm)]],
             colWidths=[9.6 * cm, 6.4 * cm])
 row.setStyle(TableStyle([("VALIGN", (0, 0), (-1, -1), "MIDDLE")]))
 story.append(row)
@@ -354,7 +366,7 @@ story.append(P(
     "À l'itération 11, swap(7,3) donne <b>1-8-3-7-6-5-4-2-1 de longueur 98</b>. "
     "L'algorithme retrouve 98 à l'itération 20 (1-2-4-5-6-7-3-8-1, c'est le même "
     "cycle à l'envers) et s'arrête après 15 itérations sans amélioration."))
-story.append(Image("fig_ex3_tabou.png", width=12.5 * cm, height=12.5 * 2.8 / 6.2 * cm))
+story.append(Image(chemin("fig_ex3_tabou.png"), width=12.5 * cm, height=12.5 * 2.8 / 6.2 * cm))
 story.append(P("Figure 3 — Convergence de la recherche taboue (exercice 3)", CAP))
 story.append(P(
     "<b>Influence de la durée taboue</b> (essais réalisés) : avec une durée de 3 "
@@ -448,10 +460,10 @@ story.append(P(f'Code source : <link href="{GITHUB}" color="blue">{GITHUB}</link
 # ------------------------------------------------ Annexe code
 story.append(PageBreak())
 story.append(P("Annexe A — exercice2_transport_tabou.py", H1))
-story.append(Preformatted(open("exercice2_transport_tabou.py", encoding="utf-8").read(), CODE))
+story.append(Preformatted(open(chemin("exercice2_transport_tabou.py"), encoding="utf-8").read(), CODE))
 story.append(PageBreak())
 story.append(P("Annexe B — exercice3_tsp.py", H1))
-story.append(Preformatted(open("exercice3_tsp.py", encoding="utf-8").read(), CODE))
+story.append(Preformatted(open(chemin("exercice3_tsp.py"), encoding="utf-8").read(), CODE))
 
 
 def pied(canvas, doc):
@@ -464,10 +476,10 @@ def pied(canvas, doc):
     canvas.restoreState()
 
 
-doc = SimpleDocTemplate("Compte_rendu_TD2.pdf", pagesize=A4,
+doc = SimpleDocTemplate(chemin("Compte_rendu_TD2.pdf"), pagesize=A4,
                         leftMargin=2 * cm, rightMargin=2 * cm,
                         topMargin=1.8 * cm, bottomMargin=2 * cm,
                         title="Compte rendu TD2 - Recherche taboue et recuit simulé",
                         author="Étudiant FSS")
 doc.build(story, onFirstPage=pied, onLaterPages=pied)
-print("PDF généré : Compte_rendu_TD2.pdf")
+print("PDF généré :", chemin("Compte_rendu_TD2.pdf"))

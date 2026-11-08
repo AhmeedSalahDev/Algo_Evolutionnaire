@@ -8,7 +8,9 @@ Faculté des Sciences de Sfax — Algorithmes évolutionnaires / métaheuristiqu
 |---|---|
 | `td2/exercice2_transport_tabou.py` | Exercice 2 : problème de transport résolu par recherche taboue |
 | `td2/exercice3_tsp.py` | Exercice 3 : voyageur de commerce résolu par recherche taboue et recuit simulé |
-| `generer_rapport.py` | Génère les figures et le compte rendu PDF (`Compte_rendu_TD2.pdf`) |
+| `td2/generer_rapport.py` | Génère les figures et le compte rendu PDF (`td2/Compte_rendu_TD2.pdf`) |
+| `td2/fig_*.png` | Figures utilisées dans le compte rendu |
+| `td2/sortie_exercice*.txt` | Sorties console des exercices 2 et 3 |
 
 ## Installer le package
 
@@ -30,16 +32,18 @@ tour, longueur, historique_tsp = recherche_taboue_tsp(
 )
 ```
 
-Les anciens points d'entrée à la racine restent compatibles :
+Lancer les exercices depuis la racine du dépôt :
 
 ```bash
-python exercice2_transport_tabou.py
-python exercice3_tsp.py
+python -m td2.exercice2_transport_tabou
+python -m td2.exercice3_tsp
 ```
 
-Pour générer le rapport, installer ses dépendances et lancer le script depuis la racine :
+Pour générer le rapport, installer ses dépendances puis lancer :
 
 ```bash
 pip install matplotlib reportlab
-python generer_rapport.py
+python -m td2.generer_rapport
 ```
+
+Les figures et le PDF sont écrits dans le dossier `td2/`.
