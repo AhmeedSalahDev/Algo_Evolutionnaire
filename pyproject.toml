@@ -1,0 +1,14 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "td2"
+version = "0.1.0"
+description = "Recherche taboue et recuit simulé — exercices TD2"
+readme = "README.md"
+requires-python = ">=3.8"
+
+[tool.setuptools]
+packages = ["td2"]
+py-modules = ["exercice2_transport_tabou", "exercice3_tsp", "generer_rapport"]
