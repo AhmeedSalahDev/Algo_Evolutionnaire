@@ -6,10 +6,9 @@ Faculté des Sciences de Sfax — Algorithmes évolutionnaires / métaheuristiqu
 
 | Fichier | Description |
 |---|---|
-| `exercice2_transport_tabou.py` | Exercice 2 : problème de transport résolu par recherche taboue |
-| `exercice3_tsp.py` | Exercice 3 : voyageur de commerce résolu par recherche taboue et recuit simulé |
+| `td2/exercice2_transport_tabou.py` | Exercice 2 : problème de transport résolu par recherche taboue |
+| `td2/exercice3_tsp.py` | Exercice 3 : voyageur de commerce résolu par recherche taboue et recuit simulé |
 | `generer_rapport.py` | Génère les figures et le compte rendu PDF (`Compte_rendu_TD2.pdf`) |
-| `td2/` | Package Python exposant les deux modules d'algorithmes |
 
 ## Installer le package
 
@@ -31,7 +30,7 @@ tour, longueur, historique_tsp = recherche_taboue_tsp(
 )
 ```
 
-Les scripts historiques restent utilisables directement :
+Les anciens points d'entrée à la racine restent compatibles :
 
 ```bash
 python exercice2_transport_tabou.py
