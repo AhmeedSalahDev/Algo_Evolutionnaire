@@ -1,4 +1,5 @@
 __pycache__/
 *.pyc
 Compte_rendu_TD2.pdf
-td2/Compte_rendu_TD2.pdf
+build/
+*.egg-info/
